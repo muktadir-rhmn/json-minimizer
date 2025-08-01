@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Minimizer</title>
+</head>
+<body>
+    <script src="js-minimizer.js"></script>
+    <script>
+        let schema = {
+            name: PRIMITIVE,
+            age: PRIMITIVE,
+            courses: PRIMITIVE,
+            advisor: {
+                name: PRIMITIVE,
+                email: PRIMITIVE
+            }
+        };
+
+        let data = [['guanpeng-li@uiowa.edu', 'Guanpeng Li'], 29, ['Algorithms', 'Discrete'], 'muktadir'];
+        let restoredData = new JSONRestorer(schema).restore(data);
+        console.log(restoredData);
+
+        minimizedData = new JSONMinimizer().minimize(restoredData);
+        console.log(minimizedData);
+
+        restoredData = new JSONRestorer(schema).restore(minimizedData);
+        console.log(restoredData);
+
+    </script>
+</body>
+</html>
