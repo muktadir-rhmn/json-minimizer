@@ -10,23 +10,40 @@
         let schema = {
             name: PRIMITIVE,
             age: PRIMITIVE,
-            courses: PRIMITIVE,
+            courses: [{
+                name: PRIMITIVE,
+                sh: PRIMITIVE,
+            }],
             advisor: {
                 name: PRIMITIVE,
                 email: PRIMITIVE
             }
         };
 
-        let data = [['guanpeng-li@uiowa.edu', 'Guanpeng Li'], 29, ['Algorithms', 'Discrete'], 'muktadir'];
-        let restoredData = new JSONRestorer(schema).restore(data);
-        console.log(restoredData);
+        data = {
+            name: "muktadir",
+            age: 29,
+            courses: [
+                {
+                    name: "Algorithms",
+                    sh: 3,
+                },
+                {
+                    name: "Functional Programming",
+                    sh: 3,
+                }
+            ],
+            advisor: {
+                name: "Guanpeng Li",
+                email: "guanpeng-li@uiowa.edu",
+            }
+        }
+        minimizedData = new JSONMinimizer().minimize(data);
+        console.log("minimized data", minimizedData);
 
-        minimizedData = new JSONMinimizer().minimize(restoredData);
-        console.log(minimizedData);
+        let restoredData = new JSONRestorer(schema).restore(minimizedData);
 
-        restoredData = new JSONRestorer(schema).restore(minimizedData);
-        console.log(restoredData);
-
+        console.log("restored data:", restoredData);
     </script>
 </body>
 </html>

@@ -3,7 +3,10 @@ from json_minimizer import json_minimizable, JSONRestorer
 schema = {
     "name": str,
     "age": int,
-    "courses": [str],
+    "courses": [{
+        "name": str,
+        "sh": int
+    }],
     "advisor": {
         "name": str,
         "email": str
@@ -15,7 +18,16 @@ def test():
     d = {
         "name": "muktadir",
         "age": 29,
-        "courses": ["Algorithms", "Discrete"],
+        "courses": [
+            {
+                "name": "Algorithms",
+                "sh": 3,
+            },
+            {
+                "name": "Functional Programming",
+                "sh": 3
+            }
+        ],
         "advisor": {
             "name": "Guanpeng Li",
             "email": "guanpeng-li@uiowa.edu"
