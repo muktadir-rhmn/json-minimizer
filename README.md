@@ -11,4 +11,6 @@ Since the libraries completely get rid of keys which take up to 60% space in JSO
 # Design
 Programmers can write program using dictionaries, objects - the way they usually do, as if nothing happened. The Python library gets rid of the field names before sending it to the frontend. The JS library restores the original data and sends it to the JS code as objects. 
 
+Check out the test files inside each library for examples. 
+
 ![Design of JSON minimizer](design.png)
