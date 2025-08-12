@@ -14,3 +14,6 @@ Programmers can write program using dictionaries, objects - the way they usually
 Check out the test files inside each library for examples. 
 
 ![Design of JSON minimizer](design.png)
+
+# Implementation
+I followed Strategy design pattern. The reason is that the minimization and restoration logic are different based on types. So, for handling each type, I have created a separate class. Such a class is the single source of truth for a particular type of data.   

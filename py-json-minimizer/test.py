@@ -1,4 +1,4 @@
-from json_minimizer import json_minimizable, JSONRestorer
+from json_minimizer import json_minimizable, JSONMinimizer
 
 schema = {
     "name": str,
@@ -38,5 +38,5 @@ def test():
 minimized = test()
 print(minimized)
 
-restored = JSONRestorer(schema).restore(minimized)
+restored = JSONMinimizer().restore(schema, minimized)
 print(restored)
